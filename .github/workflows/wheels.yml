@@ -75,11 +75,12 @@ jobs:
   windows-test:
     # This workflow only runs on the origin org
     if: github.repository_owner == 'sgkit-dev'
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
     needs: ['build']
     strategy:
       matrix:
-        python-version: ["3.11"]
+        os: [windows-latest, windows-11-arm]
+        python-version: ["3.12"]
     steps:
       # checkout repo to subdirectory to get access to scripts
       - uses: actions/checkout@v7
