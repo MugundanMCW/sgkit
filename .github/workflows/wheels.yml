@@ -4,8 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
-      - test
+      - tt
     tags:
       - '*'
   release:
@@ -73,8 +72,8 @@ jobs:
           python sgkit-copy/.github/scripts/test_sgkit_plink.py
 
   windows-test:
-    # This workflow only runs on the origin org
-    if: github.repository_owner == 'sgkit-dev'
+    # # This workflow only runs on the origin org
+    # if: github.repository_owner == 'sgkit-dev'
     runs-on: ${{ matrix.os }}
     needs: ['build']
     strategy:
